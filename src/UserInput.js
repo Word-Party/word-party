@@ -1,22 +1,12 @@
 // import Buttons from "./Buttons";
 import { useState } from 'react';
+import Button from './Button';
+
 
 function UserInput(props) {
 
 
     const [input, setInput] = useState('');
-
-    const handleClick = (event) => {
-        event.preventDefault();
-        console.log(event.target.name);
-        console.log(event.target.value);
-
-        const myObject = {max: 10};
-        myObject[event.target.name] = input;
-        props.setParameter(myObject)
-
-        setInput('');
-    }
 
     const handleInputChange = (event) => {
         setInput(event.target.value);
@@ -33,18 +23,20 @@ function UserInput(props) {
                 value={input}
                 onChange={handleInputChange}
             />
-            <button 
-                onClick={handleClick}
-                name='rel_rhy'
-            >
-                Rhyme
-            </button>
-            <button 
-                onClick={handleClick}
-                name='ml'
-            >
-                Similar
-            </button>
+            <Button 
+                parameter={'rel_rhy'}
+                setParameter={props.setParameter}
+                setInput={setInput}
+                input={input}
+                buttonName={'rhyme'}
+            />
+            <Button 
+                parameter={'ml'}
+                setParameter={props.setParameter}
+                setInput={setInput}
+                input={input}
+                buttonName={'similar'}
+            />
         </form>
     )
 }
