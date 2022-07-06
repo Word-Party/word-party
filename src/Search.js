@@ -5,8 +5,11 @@ import UserInput from "./UserInput";
 
 function Search (props){
     return ( <div>
-        <UserInput/>
-        <Output wordArray={props.wordArray}/>
+        <UserInput
+            parameterObject={props.parameterObject}
+            setParameter={props.setParameter}
+        />
+        <Output resultsArray={props.resultsArray}/>
     </div> )
 }
 

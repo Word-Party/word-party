@@ -10,30 +10,38 @@ import Search from './Search';
 function App() {
 
   const [parameterObject, setParameter] = useState({
-    rel_rhy: 'sea',
+    rel_rhy: '',
     /* similar: 'ml', */
     max: 10,
   })
+
   const [output, setOutput] = useState([]) 
 
   useEffect(() => {
+    console.log('pulling from API');
     axios({
       url: 'https://api.datamuse.com/words',
       method: 'GET',
       params: parameterObject,
     }) .then((res) => {
       setOutput(res.data);
-      console.log(res.data);
+      // console.log(res.data);
     })
-  },[])
+  },[parameterObject])
 
+  //For testing only
   useEffect(() => {
       console.log(output);
+      console.log(parameterObject);
   },[output])
 
   return (
     <div className="App">
-      <Search wordArray={output}/>
+      <Search 
+        resultsArray={output}
+        parameterObject={parameterObject}
+        setParameter={setParameter}
+      />
     </div>
   );
 }

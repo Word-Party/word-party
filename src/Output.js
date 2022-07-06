@@ -3,7 +3,7 @@ import OutputWord from './OutputWord';
 function Output(props) {
     return (
         <ul>
-            {props.wordArray.map((word) => {
+            {props.resultsArray.map((word) => {
                 return (
                     <OutputWord
                         key={word.score}
