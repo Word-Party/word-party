@@ -23,17 +23,17 @@ function App() {
       url: 'https://api.datamuse.com/words',
       method: 'GET',
       params: parameterObject,
-    }) .then((res) => {
+    }).then((res) => {
       setOutput(res.data);
       // console.log(res.data);
     })
   },[parameterObject])
 
-  //For testing only
-  useEffect(() => {
-      console.log(output);
-      console.log(parameterObject);
-  },[output])
+  //For testing only 
+  // useEffect(() => {
+  //     console.log(output);
+  //     console.log(parameterObject);
+  // },[output, parameterObject])
 
   return (
     <div className="App">

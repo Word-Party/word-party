@@ -3,7 +3,7 @@
 function OutputWord(props){
     return (
             <li>
-                {props.wordz.word}
+                {props.word.word}
             </li>
         )}
 

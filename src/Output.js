@@ -7,7 +7,7 @@ function Output(props) {
                 return (
                     <OutputWord
                         key={word.score}
-                        wordz={word}
+                        word={word}
                     />
                 )
             })}
