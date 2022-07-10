@@ -70,7 +70,7 @@ function App() {
             <Link to="/Search">Search</Link>
           </li>
           <li>
-            <Link to="/About">About</Link>
+            <Link to="/">About</Link>
           </li>
           <li>
             <Link to="/WordList">Word list</Link>

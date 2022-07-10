@@ -31,6 +31,7 @@ function WordListStorage (props) {
             when we write the firebase uploading/updating, it knows 
             which ID to write to */}
         <Search wordListID={props.wordListID}/>
+        
         <Output 
             resultsArray={wordList}
         />
