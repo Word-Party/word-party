@@ -7,7 +7,7 @@ function Search (props){
     const [parameterObject, setParameter] = useState({
         rel_rhy: '',
         /* similar: 'ml', */
-        max: 10,
+        max: 20,
       })
     
       const [output, setOutput] = useState([]) 

@@ -8,7 +8,7 @@ function Button(props) {
         console.log(event.target.name);
         console.log(event.target.value);
 
-        const myObject = {max: 10};
+        const myObject = {max: 20};
         myObject[event.target.name] = props.input;
         props.setParameter(myObject)
 

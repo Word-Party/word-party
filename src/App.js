@@ -1,7 +1,7 @@
 import firebase from './firebase';
 import { getDatabase, ref, onValue } from "firebase/database";
 import { useEffect, useState } from 'react';
-import './App.scss';
+import './App.css';
 import Search from './Search';
 import Main from './Main';
 import WordListStorage from './WordListStorage';
@@ -59,24 +59,47 @@ function App() {
   // },[output, parameterObject])
 
   return (
-    <div className="App">
-      <h1>Word Party!</h1>
+    <div className="App wrapper">
       {/* nav somewhere here */}
+      <nav>
+        <ul className="nav-container">
+          <li>
+            <Link to="/Main">Home</Link>
+          </li>
+          <li>
+            <Link to="/Search">Search</Link>
+          </li>
+          <li>
+            <Link to="/About">About</Link>
+          </li>
+          <li>
+            <Link to="/WordList">Word list</Link>
+          </li>
+        </ul>
+      </nav>
+
+      <h1>WORD PARTY!</h1>
       <Routes>
-        <Route path="/" element={ 
-          // pass keys into main
-          <Main wordListIDArray={wordListIDArray}/> 
-        } />
-        <Route path="/search" element={ 
-          <Search 
+        <Route
+          path="/Main"
+          element={
+            // pass keys into main
+            <Main wordListIDArray={wordListIDArray} />
+          }
+        />
+        <Route
+          path="/search"
+          element={
+            <Search
             // resultsArray={output}
             // parameterObject={parameterObject}
             // setParameter={setParameter}
-          />
-        } />
-          {/* Eventually, there will be a map function here that
+            />
+          }
+        />
+        {/* Eventually, there will be a map function here that
               generates a route for each key in firebase */}
-          {/* <Route path="/route1" element={ 
+        {/* <Route path="/route1" element={ 
             // something here for the output of the wordlist
             <WordListStorage wordListID={"route1"} />
           } />
@@ -84,14 +107,19 @@ function App() {
             // something here for the output of the wordlist
             <WordListStorage wordListID={"route2"} />
           } /> */}
-          {wordListIDArray.map((wordListID) => {
-            return <Route path={wordListID} key={wordListID} element={ 
-              // something here for the output of the wordlist
-              <WordListStorage wordListID={wordListID} />
-            } />
-          })}
+        {wordListIDArray.map((wordListID) => {
+          return (
+            <Route
+              path={wordListID}
+              key={wordListID}
+              element={
+                // something here for the output of the wordlist
+                <WordListStorage wordListID={wordListID} />
+              }
+            />
+          );
+        })}
       </Routes>
-
     </div>
   );
 }

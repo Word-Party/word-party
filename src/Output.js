@@ -1,17 +1,20 @@
 import OutputWord from './OutputWord';
+import "./App.css";
 
 function Output(props) {
     return (
-        <ul>
-            {props.resultsArray.map((word) => {
-                return (
-                    <OutputWord
-                        key={word.score}
-                        word={word}
-                    />
-                )
-            })}
-        </ul>
+        <div>
+            <ul className='output-container'>
+                {props.resultsArray.map((word) => {
+                    return (
+                        <OutputWord
+                            key={word.score}
+                            word={word}
+                        />
+                    )
+                })}
+            </ul>
+        </div>
     )
 }
 
