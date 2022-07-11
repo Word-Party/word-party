@@ -11,6 +11,8 @@ function Output(props) {
                         <OutputWord
                             key={index}
                             word={word}
+                            index={index}
+                            removeFunction={props.removeFunction}
                             addFunction={props.addFunction}
                         />
                     )

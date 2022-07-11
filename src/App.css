@@ -151,7 +151,13 @@ button:focus {
         background-color: papayawhip;
         font-family: 'Dosis', sans-serif;
         text-transform: capitalize;
-        padding: 30px 20px;
+        
+}
+
+.main-route-playlist-items a {
+    /* padding: 30px 50px; */
+    width: 100%;
+    padding: 30px;
 }
 
 .main-route-playlist-items:hover {

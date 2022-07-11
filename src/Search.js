@@ -1,9 +1,13 @@
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import firebase from './firebase';
+import { getDatabase, ref, set } from "firebase/database";
+import { useEffect, useState   } from 'react';
 import Output from "./Output";
 import UserInput from "./UserInput";
+import { useNavigate } from "react-router-dom";
+
 function Search (props){
-    
+    const navigate = useNavigate();
     const [parameterObject, setParameter] = useState({
         rel_rhy: '',
         /* similar: 'ml', */
@@ -24,6 +28,25 @@ function Search (props){
         })
       },[parameterObject])
 
+      let myAddFunction;
+      if (props.addFunction) {
+        myAddFunction = props.addFunction
+      }
+      else {
+        myAddFunction = (word)=>{
+          const newRoute = prompt('enter new routename')
+          console.log(newRoute)
+          const database = getDatabase(firebase);
+          const dbRef = ref(database, newRoute);
+          set(dbRef, 
+            { name: newRoute,
+              words: [word]
+            }
+          );
+          navigate(`../${newRoute}`)
+        }
+      }
+
     return ( <div>
         <UserInput
             // parameterObject={props.parameterObject}
@@ -31,10 +54,11 @@ function Search (props){
             parameterObject={parameterObject}
             setParameter={setParameter}
         />
+        <h2>your results:</h2>
         <Output 
             // resultsArray={props.resultsArray}
             resultsArray={output}
-            addFunction={props.addFunction}
+            addFunction={myAddFunction}
         />
     </div> )
 }

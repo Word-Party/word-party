@@ -1,11 +1,12 @@
 import firebase from './firebase';
 import { getDatabase, ref, onValue, set } from "firebase/database";
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import Output from './Output';
 import Search from './Search';
 
 function WordListStorage (props) {
 
+    const firstRender = useRef(true)
     const [wordList, setWordList] = useState([]);
 
     useEffect(()=> {
@@ -13,21 +14,24 @@ function WordListStorage (props) {
       const database = getDatabase(firebase);
 
       // we then create a variable that makes reference to our database
-      const dbRef = ref(database, props.wordListID);
+      const dbRef = ref(database, props.wordListID + "/words");
 
        // add an event listener to that variable that will fire
     // from the database, and call that data 'response'.
     onValue(dbRef, (response) => {
        // here we use Firebase's .val() method to parse our database info the way we want it
       console.log(response.val());
-      setWordList(response.val());
+      setWordList(response.val() || []);
     })
   }, [props.wordListID])
 
   useEffect(()=>{
-    if (wordList.length > 0) {
+    if (firstRender.current === true) {
+      firstRender.current = false;
+    }
+    else {
       const database = getDatabase(firebase);
-      const dbRef = ref(database, props.wordListID);
+      const dbRef = ref(database, props.wordListID + "/words");
       set(dbRef, wordList);
     }
   },[wordList,props.wordListID])
@@ -40,6 +44,19 @@ function WordListStorage (props) {
     // console.log('working???')
   }
 
+  const removeWordFromList = (index) => {
+    const newArray = wordList.slice();
+    newArray.splice(index,1)
+    setWordList(newArray)
+    // const newArray = [];
+    // wordList.forEach((el, otherIndex)=>{
+    //   if (index !== otherIndex) {
+    //     newArray.push(el)
+    //   }
+    // })
+    // setWordList(newArray)
+  }
+
     return (
       <div>
         {/* Put this back later */}
@@ -50,10 +67,10 @@ function WordListStorage (props) {
           wordListID={props.wordListID}
           addFunction={addWordToList}
         />
-        
+        <h2>your list:</h2>
         <Output 
             resultsArray={wordList}
-            // addFunction={removeWordFromList}
+            removeFunction={removeWordFromList}
         />
       </div>
     );

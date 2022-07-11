@@ -3,7 +3,12 @@ import "./App.css";
 function OutputWord(props) {
   return <li 
   className="output-item" onClick={ () => {
-    props.addFunction(props.word)
+    if (props.removeFunction) {
+      props.removeFunction(props.index)
+    }
+    else {
+      props.addFunction(props.word)
+    }
     // console.log(props)
   }
   }>
