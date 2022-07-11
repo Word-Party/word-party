@@ -2,9 +2,10 @@ import "./App.css";
 
 function OutputWord(props) {
   return <li 
-  className="output-item" onClick={
-    props.addFunction.current(props.word)
-    /* console.log(props.addFunction) */
+  className="output-item" onClick={ () => {
+    props.addFunction(props.word)
+    // console.log(props)
+  }
   }>
     {props.word.word}
     </li>;

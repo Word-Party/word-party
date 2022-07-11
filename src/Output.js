@@ -2,6 +2,7 @@ import OutputWord from './OutputWord';
 import "./App.css";
 
 function Output(props) {
+    console.log(props)
     return (
         <div>
             <ul className='output-container'>

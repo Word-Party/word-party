@@ -34,6 +34,7 @@ function Search (props){
         <Output 
             // resultsArray={props.resultsArray}
             resultsArray={output}
+            addFunction={props.addFunction}
         />
     </div> )
 }

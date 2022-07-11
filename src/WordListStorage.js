@@ -1,6 +1,6 @@
 import firebase from './firebase';
-import { getDatabase, ref, onValue, push } from "firebase/database";
-import { useEffect, useState, useRef } from 'react';
+import { getDatabase, ref, onValue, set } from "firebase/database";
+import { useEffect, useState } from 'react';
 import Output from './Output';
 import Search from './Search';
 
@@ -24,15 +24,21 @@ function WordListStorage (props) {
     })
   }, [props.wordListID])
 
-  const addWordToList= useRef((newWord) => {
+  useEffect(()=>{
+    if (wordList.length > 0) {
+      const database = getDatabase(firebase);
+      const dbRef = ref(database, props.wordListID);
+      set(dbRef, wordList);
+    }
+  },[wordList,props.wordListID])
+
+  const addWordToList = (newWord) => {
+    // console.log(newWord)
+    // console.log(wordList)
     setWordList([...wordList,newWord])
-    const database = getDatabase(firebase);
-    const dbRef = ref(database, props.wordListID);
-    push(dbRef, wordList);
-    /* console.log('working???') */
-  })
-
-
+    // push(dbRef, newWord);
+    // console.log('working???')
+  }
 
     return (
       <div>
@@ -40,12 +46,14 @@ function WordListStorage (props) {
         {/* the search will need to know the props.wordListID so that
             when we write the firebase uploading/updating, it knows 
             which ID to write to */}
-        <Search wordListID={props.wordListID}/>
+        <Search 
+          wordListID={props.wordListID}
+          addFunction={addWordToList}
+        />
         
         <Output 
             resultsArray={wordList}
-            addFunction={addWordToList}
-            /* addFunction={'Blahh!'} */
+            // addFunction={removeWordFromList}
         />
       </div>
     );
