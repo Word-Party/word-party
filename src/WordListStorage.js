@@ -22,7 +22,7 @@ function WordListStorage (props) {
       console.log(response.val());
       setWordList(response.val());
     })
-  }, [])
+  }, [props.wordListID])
 
     return (
       <div>

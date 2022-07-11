@@ -14,7 +14,8 @@ function Main (props) {
                 the links for the different keys */}
             {/* {console.log(props.wordListIDArray)} */}
             {props.wordListIDArray.map((wordListID)=>{
-                return <li className="main-route-playlist-items"><a href={wordListID}>{wordListID}</a></li>
+                return <li className="main-route-playlist-items">{/* <a href={wordListID}>{wordListID}</a> */}
+                <Link to={"../"+wordListID}>{wordListID}</Link></li>
             })}
             {/* <li><a href="/route1">wordlist 1</a></li> */}
             {/* <li><a href="/route2">wordlist 2</a></li> */}
