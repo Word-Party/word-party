@@ -25,11 +25,11 @@ function WordListStorage (props) {
   }, [props.wordListID])
 
   const addWordToList= useRef((newWord) => {
+    setWordList([...wordList,newWord])
     const database = getDatabase(firebase);
     const dbRef = ref(database, props.wordListID);
     push(dbRef, wordList);
     /* console.log('working???') */
-    setWordList([...wordList,newWord])
   })
 
 
