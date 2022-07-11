@@ -5,11 +5,12 @@ function Output(props) {
     return (
         <div>
             <ul className='output-container'>
-                {props.resultsArray.map((word) => {
+                {props.resultsArray.map((word, index) => {
                     return (
                         <OutputWord
-                            key={word.score}
+                            key={index}
                             word={word}
+                            addFunction={props.addFunction}
                         />
                     )
                 })}

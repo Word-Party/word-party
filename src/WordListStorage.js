@@ -1,6 +1,6 @@
 import firebase from './firebase';
-import { getDatabase, ref, onValue } from "firebase/database";
-import { useEffect, useState } from 'react';
+import { getDatabase, ref, onValue, push } from "firebase/database";
+import { useEffect, useState, useRef } from 'react';
 import Output from './Output';
 import Search from './Search';
 
@@ -24,6 +24,16 @@ function WordListStorage (props) {
     })
   }, [props.wordListID])
 
+  const addWordToList= useRef((newWord) => {
+    const database = getDatabase(firebase);
+    const dbRef = ref(database, props.wordListID);
+    push(dbRef, wordList);
+    /* console.log('working???') */
+    setWordList([...wordList,newWord])
+  })
+
+
+
     return (
       <div>
         {/* Put this back later */}
@@ -34,6 +44,8 @@ function WordListStorage (props) {
         
         <Output 
             resultsArray={wordList}
+            addFunction={addWordToList}
+            /* addFunction={'Blahh!'} */
         />
       </div>
     );
