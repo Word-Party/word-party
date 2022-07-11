@@ -23,6 +23,8 @@ function UserInput(props) {
                 value={input}
                 onChange={handleInputChange}
             />
+            <div className='button-container'>
+
             <Button 
                 parameter={'rel_rhy'}
                 setParameter={props.setParameter}
@@ -37,6 +39,7 @@ function UserInput(props) {
                 input={input}
                 buttonName={'similar'}
             />
+            </div>
         </form>
     )
 }
