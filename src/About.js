@@ -17,7 +17,16 @@ function About() {
             <a href="https://github.com/colinho97"><i class="fa-brands fa-github"></i></a>
             <a href="https://www.linkedin.com/in/colin-ho-3b7768103/"><i class="fa-brands fa-linkedin"></i></a>
             </div>
+          </li>
           
+            <li>
+            <img src={require("./assets/midian-judah.jpeg")} alt="Team member Midian Judah"/>
+            <p className="dev-name">Midian Judah</p>
+            <div className="icon-container">
+            <a href="https://github.com/midianjudah"><i class="fa-brands fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/midian-judah-25aa36163/"><i class="fa-brands fa-linkedin"></i></a>
+            </div>
+          </li>
           
         </ul>
       </div>
