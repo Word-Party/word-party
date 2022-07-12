@@ -14,7 +14,7 @@ function WordListStorage (props) {
       const database = getDatabase(firebase);
 
       // we then create a variable that makes reference to our database
-      const dbRef = ref(database, props.wordListID + "/words");
+      const dbRef = ref(database, props.wordListID.route + "/words");
 
        // add an event listener to that variable that will fire
     // from the database, and call that data 'response'.
@@ -23,7 +23,7 @@ function WordListStorage (props) {
       console.log(response.val());
       setWordList(response.val() || []);
     })
-  }, [props.wordListID])
+  }, [props.wordListID.route])
 
   useEffect(()=>{
     if (firstRender.current === true) {
@@ -31,10 +31,10 @@ function WordListStorage (props) {
     }
     else {
       const database = getDatabase(firebase);
-      const dbRef = ref(database, props.wordListID + "/words");
+      const dbRef = ref(database, props.wordListID.route + "/words");
       set(dbRef, wordList);
     }
-  },[wordList,props.wordListID])
+  },[wordList,props.wordListID.route])
 
   const addWordToList = (newWord) => {
     // console.log(newWord)
@@ -64,7 +64,7 @@ function WordListStorage (props) {
             when we write the firebase uploading/updating, it knows 
             which ID to write to */}
         <Search 
-          wordListID={props.wordListID}
+          wordListID={props.wordListID.route}
           addFunction={addWordToList}
         />
         <h2>your list:</h2>

@@ -22,13 +22,14 @@ function App() {
   // from the database, and call that data 'response'.
   onValue(dbRef, (response) => {
     // here we use Firebase's .val() method to parse our database info the way we want it
-    const wordListIDs = [];
+    const wordLists = [];
     const data = response.val()
     for (let key in data) {
-      wordListIDs.push(key)
+      let wordList = {route: key, name: data[key].name}
+      wordLists.push(wordList)
     }
-    console.log(wordListIDs);
-    setWordListIDArray(wordListIDs);
+    console.log(wordLists);
+    setWordListIDArray(wordLists);
   })
 }, [])
   
@@ -110,8 +111,8 @@ function App() {
         {wordListIDArray.map((wordListID) => {
           return (
             <Route
-              path={wordListID}
-              key={wordListID}
+              path={wordListID.route}
+              key={wordListID.route}
               element={
                 // something here for the output of the wordlist
                 <WordListStorage wordListID={wordListID} />
