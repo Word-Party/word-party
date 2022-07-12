@@ -188,6 +188,41 @@ button:focus {
 }
 
 
+/* --------------------------------- */
+/* About */
+/* --------------------------------- */
+
+.team-info {
+    display: flex;
+    justify-content: space-between;
+}
+
+img {
+    object-fit: cover;
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+}
+
+.dev-name {
+    font-family: 'Dosis', sans-serif;
+    font-weight: 400;
+    font-size: 1.6rem;
+    margin: 10px;
+}
+
+.icon-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+i {
+    font-size: 1.5rem; 
+}
+
+
+
 /* FOOTER STYLES */
 
 .footer {
