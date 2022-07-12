@@ -36,6 +36,15 @@ function About() {
             <a href="https://www.linkedin.com/in/rslmason/"><i class="fa-brands fa-linkedin"></i></a>
             </div>
           </li>
+
+          <li>
+          <img src={require("./assets/simon-oconnor.jpg")} alt="Team member Simon O'Connor"/>
+            <p className="dev-name">Simon O'Connor</p>
+            <div className="icon-container">
+            <a href="https://github.com/SimonOConnor28"><i class="fa-brands fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/simontoconnor/"><i class="fa-brands fa-linkedin"></i></a>
+            </div>
+          </li>
           
         </ul>
       </div>
