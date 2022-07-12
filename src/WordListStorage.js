@@ -1,11 +1,12 @@
 import firebase from './firebase';
-import { getDatabase, ref, onValue, set } from "firebase/database";
+import { getDatabase, ref, onValue, set, remove } from "firebase/database";
 import { useEffect, useState, useRef } from 'react';
+import { useNavigate} from "react-router-dom";
 import Output from './Output';
 import Search from './Search';
 
 function WordListStorage (props) {
-
+    const navigate = useNavigate();
     const firstRender = useRef(true)
     const [wordList, setWordList] = useState([]);
 
@@ -57,8 +58,16 @@ function WordListStorage (props) {
     // setWordList(newArray)
   }
 
+  const removeListButton = () => {
+    const database = getDatabase(firebase);
+    const dbRef = ref(database, props.wordListID.route)
+    remove(dbRef)
+    navigate(`../WordListPage`);
+  }
+
     return (
       <div>
+        <button onClick={removeListButton}>Delete</button>
         {/* Put this back later */}
         {/* the search will need to know the props.wordListID so that
             when we write the firebase uploading/updating, it knows 
@@ -67,7 +76,7 @@ function WordListStorage (props) {
           wordListID={props.wordListID.route}
           addFunction={addWordToList}
         />
-        <h2>your list for {props.wordListID.name}</h2>
+        <h2>Your list for {props.wordListID.name}</h2>
         <Output 
             resultsArray={wordList}
             removeFunction={removeWordFromList}

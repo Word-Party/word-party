@@ -54,7 +54,7 @@ function Search (props){
             parameterObject={parameterObject}
             setParameter={setParameter}
         />
-        <h2>your results:</h2>
+        <h2>Your Results</h2>
         <Output 
             // resultsArray={props.resultsArray}
             resultsArray={output}

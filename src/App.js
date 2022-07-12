@@ -5,8 +5,12 @@ import './App.css';
 import Search from './Search';
 import Main from './Main';
 import WordListStorage from './WordListStorage';
+import WordListPage from './WordListPage';
 import AddNewList from './AddNewList';
+import About from './About';
+import Footer from './Footer';
 import { Link, Routes, Route, } from 'react-router-dom';
+import StartUp from './StartUp';
 
 function App() {
 
@@ -69,19 +73,21 @@ function App() {
             <Link to="/Main">Home</Link>
           </li>
           <li>
+            <Link to="/About">About</Link>
+          </li>
+          <li>
             <Link to="/Search">Search</Link>
           </li>
           <li>
-            <Link to="/">About</Link>
-          </li>
-          <li>
-            <Link to="/WordList">Word list</Link>
+            <Link to="/WordListPage">Word list</Link>
           </li>
         </ul>
       </nav>
 
       <h1>WORD PARTY!</h1>
       <Routes>
+        <Route path="/About" element={<About />} />
+
         <Route
           path="/Main"
           element={
@@ -101,22 +107,13 @@ function App() {
         />
         <Route
           path="/AddNewList"
-          element={
-            <AddNewList
-              wordListIDArray={wordListIDArray}
-            />
-          }
+          element={<AddNewList wordListIDArray={wordListIDArray} />}
         />
-        {/* Eventually, there will be a map function here that
-              generates a route for each key in firebase */}
-        {/* <Route path="/route1" element={ 
-            // something here for the output of the wordlist
-            <WordListStorage wordListID={"route1"} />
-          } />
-          <Route path="/route2" element={ 
-            // something here for the output of the wordlist
-            <WordListStorage wordListID={"route2"} />
-          } /> */}
+        <Route
+          path="/WordListPage"
+          element={<WordListPage wordListIDArray={wordListIDArray} />}
+        ></Route>
+        <Route path="/" element={<StartUp />}></Route>
         {wordListIDArray.map((wordListID) => {
           return (
             <Route
@@ -130,6 +127,7 @@ function App() {
           );
         })}
       </Routes>
+      <Footer />
     </div>
   );
 }
