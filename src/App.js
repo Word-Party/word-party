@@ -5,6 +5,7 @@ import './App.css';
 import Search from './Search';
 import Main from './Main';
 import WordListStorage from './WordListStorage';
+import AddNewList from './AddNewList';
 import { Link, Routes, Route, } from 'react-router-dom';
 
 function App() {
@@ -95,6 +96,14 @@ function App() {
             // resultsArray={output}
             // parameterObject={parameterObject}
             // setParameter={setParameter}
+            />
+          }
+        />
+        <Route
+          path="/AddNewList"
+          element={
+            <AddNewList
+              wordListIDArray={wordListIDArray}
             />
           }
         />

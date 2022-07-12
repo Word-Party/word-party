@@ -1,6 +1,6 @@
 import axios from 'axios';
-import firebase from './firebase';
-import { getDatabase, ref, set } from "firebase/database";
+// import firebase from './firebase';
+// import { getDatabase, ref, set } from "firebase/database";
 import { useEffect, useState   } from 'react';
 import Output from "./Output";
 import UserInput from "./UserInput";
@@ -34,16 +34,16 @@ function Search (props){
       }
       else {
         myAddFunction = (word)=>{
-          const newRoute = prompt('enter new routename')
-          console.log(newRoute)
-          const database = getDatabase(firebase);
-          const dbRef = ref(database, newRoute);
-          set(dbRef, 
-            { name: newRoute,
-              words: [word]
-            }
-          );
-          navigate(`../${newRoute}`)
+          // const newRoute = prompt('enter new routename')
+          // console.log(newRoute)
+          // const database = getDatabase(firebase);
+          // const dbRef = ref(database, newRoute);
+          // set(dbRef, 
+          //   { name: newRoute,
+          //     words: [word]
+          //   }
+          // );
+          navigate(`../AddNewList?word=${JSON.stringify([word])}`)
         }
       }
 

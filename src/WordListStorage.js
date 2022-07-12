@@ -67,7 +67,7 @@ function WordListStorage (props) {
           wordListID={props.wordListID.route}
           addFunction={addWordToList}
         />
-        <h2>your list:</h2>
+        <h2>your list for {props.wordListID.name}</h2>
         <Output 
             resultsArray={wordList}
             removeFunction={removeWordFromList}
