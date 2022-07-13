@@ -4,13 +4,19 @@ article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary
 
 * { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
 
-@import url('https://fonts.googleapis.com/css2?family=Dosis&family=Kaushan+Script&display=swap');
+.sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; border: 0; padding: 0; white-space: nowrap; clip-path: inset(100%); clip: rect(0 0 0 0); overflow: hidden;}
 
+@import url('https://fonts.googleapis.com/css2?family=Dosis&family=Kaushan+Script&display=swap');
+/* Just testing out */
 /* --------------------------------- */
 /* Base setup */
 /* --------------------------------- */
 html {
     font-size: 125%;
+}
+
+body {
+    position: relative;
 }
 
 img {
@@ -88,7 +94,10 @@ h1 {
 }
 
 h2 {
-    font-family: 'Kaushan Script', cursive;
+    font-family: 'Dosis', sans-serif;
+    font-weight: 400;
+    font-size: 1.6rem;
+    text-decoration: underline;
 }
 
 /* SEARCH STYLES */
@@ -99,7 +108,8 @@ h2 {
     flex-wrap: wrap;
     margin-top: 100px;
     gap: 20px;
-    /* border: 3px solid black; */
+    padding-bottom: 80px;
+    
 }
 
 .output-item {
@@ -107,7 +117,7 @@ h2 {
     border: 1px solid black;
     background-color: papayawhip;
     font-family: 'Dosis', sans-serif;
-    text-transform: capitalize;
+    /* text-transform: capitalize; */
     padding: 10px 10px;
 }
 
@@ -130,9 +140,25 @@ button {
         border-radius: 0.3rem;
         background-color: #b2b49f;
         border: 1px solid #b2b49f;
+        font-family: 'Dosis', sans-serif;
 }
 button:focus {
     background-color: white;
+}
+
+.delete-btn {
+    color: red;
+    background-color: grey;
+    border-radius: 20%;
+}
+/* LIST ITEMS */
+.plus-icon::before {
+    font-size: 0.8rem;
+    padding-left: 5px;
+    color: green;
+}
+.minus li {
+    color: green;
 }
 
 /* PLAYLIST ROUTE STYLES */
@@ -143,6 +169,7 @@ button:focus {
         flex-wrap: wrap;
         margin-top: 100px;
         gap: 20px;
+        padding-bottom: 80px;
 }
 
 .main-route-playlist-items {
@@ -150,11 +177,102 @@ button:focus {
         border: 1px solid black;
         background-color: papayawhip;
         font-family: 'Dosis', sans-serif;
-        text-transform: capitalize;
-        padding: 30px 20px;
+        
+}
+
+.main-route-playlist-items a {
+    width: 100%;
+    padding: 30px;
 }
 
 .main-route-playlist-items:hover {
     background-color: white;
     
+}
+
+.main-route-playlist-items.add {
+    background-color: #C8B6E2;
+}
+
+
+/* START UP PAGE */
+
+.start-up-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+
+/* --------------------------------- */
+/* About */
+/* --------------------------------- */
+
+span a {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.team-info {
+    display: flex;
+    justify-content: space-between;
+}
+
+img {
+    object-fit: cover;
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+}
+
+.dev-name {
+    font-family: 'Dosis', sans-serif;
+    font-weight: 400;
+    font-size: 1.6rem;
+    margin: 10px;
+}
+
+.icon-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+i {
+    font-size: 1.5rem; 
+}
+
+/* CREATE WORDLIST INPUT */
+input {
+    padding: 7px;
+}
+
+/* FOOTER STYLES */
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left:0;
+    right:0;
+}
+
+.footer a {
+    text-decoration: underline;
+}
+
+.footer a:hover {
+    color: white;
+}
+
+
+.second-div i{
+    display: none;
+}
+
+.second-div li::after {
+    content: "\2715";
+    font-size: 20px;
+    padding-left: 5px;
+    color:red;
 }

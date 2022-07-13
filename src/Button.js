@@ -1,4 +1,3 @@
-// import {useState} from 'react';
 
 function Button(props) {
     
@@ -11,8 +10,6 @@ function Button(props) {
         const myObject = {max: 20};
         myObject[event.target.name] = props.input;
         props.setParameter(myObject)
-
-        // props.setInput('');
     }
 
     
@@ -24,12 +21,6 @@ function Button(props) {
             >
                 {props.buttonName}
             </button>
-            {/* <button 
-                onClick={handleClick}
-                name='ml'
-            >
-                Similar
-            </button> */}
         </>
     )
 }
