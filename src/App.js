@@ -37,36 +37,9 @@ function App() {
     setWordListIDArray(wordLists);
   })
 }, [])
-  
-  // const [parameterObject, setParameter] = useState({
-  //   rel_rhy: '',
-  //   /* similar: 'ml', */
-  //   max: 10,
-  // })
-
-  // const [output, setOutput] = useState([]) 
-
-  // useEffect(() => {
-  //   console.log('pulling from API');
-  //   axios({
-  //     url: 'https://api.datamuse.com/words',
-  //     method: 'GET',
-  //     params: parameterObject,
-  //   }).then((res) => {
-  //     setOutput(res.data);
-  //     // console.log(res.data);
-  //   })
-  // },[parameterObject])
-
-  //For testing only 
-  // useEffect(() => {
-  //     console.log(output);
-  //     console.log(parameterObject);
-  // },[output, parameterObject])
 
   return (
     <div className="App wrapper">
-      {/* nav somewhere here */}
       <nav>
         <ul className="nav-container">
           <li>
@@ -99,9 +72,6 @@ function App() {
           path="/search"
           element={
             <Search
-            // resultsArray={output}
-            // parameterObject={parameterObject}
-            // setParameter={setParameter}
             />
           }
         />
@@ -120,7 +90,6 @@ function App() {
               path={wordListID.route}
               key={wordListID.route}
               element={
-                // something here for the output of the wordlist
                 <WordListStorage wordListID={wordListID} />
               }
             />

@@ -24,7 +24,6 @@ function Search (props){
           params: parameterObject,
         }).then((res) => {
           setOutput(res.data);
-          // console.log(res.data);
         })
       },[parameterObject])
 
@@ -34,29 +33,17 @@ function Search (props){
       }
       else {
         myAddFunction = (word)=>{
-          // const newRoute = prompt('enter new routename')
-          // console.log(newRoute)
-          // const database = getDatabase(firebase);
-          // const dbRef = ref(database, newRoute);
-          // set(dbRef, 
-          //   { name: newRoute,
-          //     words: [word]
-          //   }
-          // );
           navigate(`../AddNewList?word=${JSON.stringify([word])}`)
         }
       }
 
     return ( <div>
         <UserInput
-            // parameterObject={props.parameterObject}
-            // setParameter={props.setParameter}
             parameterObject={parameterObject}
             setParameter={setParameter}
         />
         <h2>Your Results</h2>
         <Output 
-            // resultsArray={props.resultsArray}
             resultsArray={output}
             addFunction={myAddFunction}
         />

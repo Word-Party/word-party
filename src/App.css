@@ -146,6 +146,21 @@ button:focus {
     background-color: white;
 }
 
+.delete-btn {
+    color: red;
+    background-color: grey;
+    border-radius: 20%;
+}
+/* LIST ITEMS */
+.plus-icon::before {
+    font-size: 0.8rem;
+    padding-left: 5px;
+    color: green;
+}
+.minus li {
+    color: green;
+}
+
 /* PLAYLIST ROUTE STYLES */
 
 .main-route-playlist-container {
@@ -154,6 +169,7 @@ button:focus {
         flex-wrap: wrap;
         margin-top: 100px;
         gap: 20px;
+        padding-bottom: 80px;
 }
 
 .main-route-playlist-items {
@@ -175,7 +191,7 @@ button:focus {
 }
 
 .main-route-playlist-items.add {
-    background-color: green;
+    background-color: #C8B6E2;
 }
 
 
@@ -191,6 +207,11 @@ button:focus {
 /* --------------------------------- */
 /* About */
 /* --------------------------------- */
+
+span a {
+    font-weight: bold;
+    text-decoration: underline;
+}
 
 .team-info {
     display: flex;
@@ -221,7 +242,10 @@ i {
     font-size: 1.5rem; 
 }
 
-
+/* CREATE WORDLIST INPUT */
+input {
+    padding: 7px;
+}
 
 /* FOOTER STYLES */
 
@@ -239,4 +263,16 @@ i {
 
 .footer a:hover {
     color: white;
+}
+
+
+.second-div i{
+    display: none;
+}
+
+.second-div li::after {
+    content: "\2715";
+    font-size: 20px;
+    padding-left: 5px;
+    color:red;
 }

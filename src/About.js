@@ -7,7 +7,6 @@ function About() {
           Word party was created using the <span> <a href="https://www.datamuse.com/api/">datamuse api.</a></span> The app is designed for when the user searches a word you can select either words that rhyme or have similar meaning.
         </p>
       </div>
-      {/* Just Testing */}
       <div>
         <ul className="team-info">
           <li>

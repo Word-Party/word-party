@@ -13,9 +13,9 @@ function AddNewList(props) {
     console.log(JSON.parse(word));
 
     const handleInputChange = (event) => {
-        setInput(event.target.value);
+        setInput(event.target.value.replace(/[\W_]/g, ""));
     }
-
+ 
     const handleClick = (event) => {
         event.preventDefault();
         console.log(event.target.name);
@@ -44,6 +44,7 @@ function AddNewList(props) {
         <form action="submit">
             <label htmlFor="listName" className="sr-only">List Name</label>
             <input 
+                className='create-wordlist-input'
                 type="text" 
                 id="listName"
                 placeholder="Enter List Name"

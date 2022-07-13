@@ -67,20 +67,20 @@ function WordListStorage (props) {
 
     return (
       <div>
-        <button onClick={removeListButton}>Delete</button>
         {/* Put this back later */}
         {/* the search will need to know the props.wordListID so that
             when we write the firebase uploading/updating, it knows 
             which ID to write to */}
-        <Search 
+        <Search
           wordListID={props.wordListID.route}
           addFunction={addWordToList}
         />
         <h2>Your list for {props.wordListID.name}</h2>
-        <Output 
-            resultsArray={wordList}
-            removeFunction={removeWordFromList}
-        />
+        <button className='delete-btn' onClick={removeListButton}>Delete Word list</button>
+        <div className='second-div'>
+
+        <Output resultsArray={wordList} removeFunction={removeWordFromList} />
+        </div>
       </div>
     );
 }
