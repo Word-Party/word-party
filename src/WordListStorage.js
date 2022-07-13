@@ -77,8 +77,8 @@ function WordListStorage (props) {
         />
         <h2>Your list for {props.wordListID.name}</h2>
         <button className='delete-btn' onClick={removeListButton}>Delete Word list</button>
+        {/* This div is for the words added to your playlist */}
         <div className='second-div'>
-
         <Output resultsArray={wordList} removeFunction={removeWordFromList} />
         </div>
       </div>
