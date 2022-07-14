@@ -4,7 +4,7 @@ function About() {
       <div>
         <h2>About Section</h2>
         <p>
-          Word party was created using the <span> <a href="https://www.datamuse.com/api/">datamuse api.</a></span> The app is designed for when the user searches a word you can select either words that rhyme or have similar meaning.
+          Word party was created using the <span> <a href="https://www.datamuse.com/api/">datamuse api.</a></span> The app is created for when a user searches for a word, the user can select either words that rhyme or have similar meaning.
         </p>
       </div>
       <div className="flex-container-media">
