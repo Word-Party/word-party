@@ -52,7 +52,7 @@ function App() {
             <Link to="/Search">Search</Link>
           </li>
           <li>
-            <Link to="/WordListPage">Word list</Link>
+            <Link to="/WordListPage">Wordlist</Link>
           </li>
         </ul>
       </nav>

@@ -12,7 +12,6 @@ function Button(props) {
         props.setParameter(myObject)
     }
 
-    
     return(
         <>
             <button 
