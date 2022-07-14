@@ -8,7 +8,7 @@ function StartUp() {
             <Link to="/Search">Search</Link>
             </button>
             <button>
-            <Link to="/WordListPage">Word List</Link>
+            <Link to="/WordListPage">WordList</Link>
             </button>
         </div>
         </div>

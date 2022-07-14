@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 function WordListPage(props) {
   return (
     <>
-      <h2>Word Playlists</h2>
+      <h2>Personal Wordlists</h2>
       <ul className="main-route-playlist-container">
         <li className="main-route-playlist-items add">
           <Link to="/AddNewList">Create Your Own Wordlist</Link>
