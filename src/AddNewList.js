@@ -42,6 +42,7 @@ function AddNewList(props) {
     
     return (
         <form action="submit">
+            <h2>Create Wordlist</h2>
             <label htmlFor="listName" className="sr-only">List Name</label>
             <input 
                 className='create-wordlist-input'

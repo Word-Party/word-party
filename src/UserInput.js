@@ -15,11 +15,12 @@ function UserInput(props) {
 
     return (
         <form>
+            <h2>Search</h2>
             <label htmlFor="words" />
             <input 
                 id="words" 
                 type="text" 
-                placeholder="Enter Text"
+                placeholder="Enter Word"
                 value={input}
                 onChange={handleInputChange}
             />
